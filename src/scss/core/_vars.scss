@@ -63,7 +63,7 @@ $themes-map: (
     primary-dark: #108b6e,
     secondary: #25313C,
     secondary-dark: #192431,
-    light: #fafafa,
+    light: #f5f6fa,
     dark: #25313C,
     error: #ec8171,
   )
@@ -96,13 +96,16 @@ $loading-transition-property: filter !default;
 
 $animation: $animation-duration $transition-function $animation-delay 1 forwards $animation-direction animation $animation-state !default;
 
+$card-scale: scale(var(--card-scale, 1)) !default;
+$card-transition: transform 0.9s $transition-function !default;
+
 $base-font-color: $secondary !default;
 $base-font-size: 16px !default;
 $base-font-height: 1.4 !default;
 
 // * Shadows
 $sh-card-primary: var(--sh-card-primary, 0 0 rem(6) 0 $primary);
-$sh-card-secondary: var(--sh-card-secondary, 0 rem(5) rem(10) 0 $secondary);
+$sh-card-secondary: var(--sh-card-secondary, 0 0 rem(20) rem(-18) $secondary);
 
 //* Fonts
 $font-family-primary: 'Inter' !default;

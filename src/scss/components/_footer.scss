@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  align-items: center;
+  gap: $gutterX2;
+
+  padding: $gutter var(--container-gutter);
+
+  &__img {
+    width: rem(68);
+    aspect-ratio: 1/1;
+
+    border-radius: 50%;
+    box-shadow: $sh-card-primary;
+
+    overflow: hidden;
+  }
+
+  &__menu {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(20);
+
+    margin: auto auto auto 0;
+
+    font-size: rem(14);
+    font-weight: bold;
+  }
+
+  &__copy {
+    font-size: rem(12);
+    opacity: 0.6;
+  }
+}

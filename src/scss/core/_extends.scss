@@ -25,6 +25,39 @@
   }
 }
 
+%card {
+  @extend %text-large-title;
+
+  --p-font-size: none;
+  --p-line-height: none;
+
+  display: flex;
+  flex-flow: row wrap;
+
+  //min-height: rem(450);
+  height: 100%;
+
+  padding: var(--card-gutter-y, rem(48)) var(--card-gutter-x, rem(48));
+
+  border-radius: $radiusLarge;
+  background-color: #fff;
+  box-shadow: $sh-card-secondary;
+
+  @include only-mouse {
+    transform-origin: top center;
+    transform: $card-scale;
+    transition: $card-transition;
+  }
+}
+
+%card-hover-animation {
+  @include only-mouse {
+    &:hover {
+      --card-scale: var(--card-scale-hover, 1.01);
+    }
+  }
+}
+
 %vertical-text {
   text-orientation: mixed;
   writing-mode: vertical-lr;
@@ -34,6 +67,26 @@
   padding: var(--container-top) var(--container-x);
 }
 
+%form-element {
+  display: inline-flex;
+  place-items: center;
+  width: 100%;
+  min-height: rem(36);
+
+  padding: 0 $gutter;
+
+  font-size: rem(16);
+
+  border: rem(1.5) solid $secondary;;
+  border-radius: $radiusSmall;
+
+  @include only-mouse {
+
+    &:hover, &:focus {
+      border-color: $primary-dark;
+    }
+  }
+}
 
 %h1 {
   font-size: var(--h1-size, rem(48));

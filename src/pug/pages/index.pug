@@ -2,3 +2,64 @@ extends ../includes/root.pug
 
 block content
 
+  main.layout
+    .container
+
+      section.converter
+        header.converter__head
+          h1.caption Currency Converter
+
+        .converter__main
+          article.converter__card
+
+            form.converter__form(name='converter-form', action="somewhere", enctype="multipart/form-data")
+              .input
+                label(for='curPassing') Passing Currency
+                input(id='curPassing', name='curPassing', type='number', min=1)
+
+              .input(class='--select')
+                label(for="curReceive") Receive Currency
+
+                .input__group
+                  input(id='curReceive', type='number',min=1)
+                  select.section(id='currList', name='currList')
+                    option(value='val1') Значение 1
+
+              .input(class='--date')
+                label(for="curDate") Display by date
+                input(
+                  type="date"
+                  id="curDate"
+                  name="curDate"
+                  value="2018-07-22"
+                  min="2013-01-01" max="2023-01-01")
+
+
+          aside.converter__card
+            h2(class='caption --2') Exchange Rate
+
+            .converter__table
+              article(class='converter__table-item --head')
+                mark name
+                span sale
+                span purse
+
+              article.converter__table-item
+                mark usd
+                span 33.343
+                span 34.343
+
+              article.converter__table-item
+                mark usd
+                span 33.343
+                span 34.343
+
+              article.converter__table-item
+                mark usd
+                span 33.343
+                span 34.343
+
+              article.converter__table-item
+                mark usd
+                span 33.343
+                span 34.343

@@ -33,7 +33,7 @@ body {
   margin: 0;
   padding: var(--header-height) 0 0;
 
-  background: var(--main-bg, $base-color);
+  background: var(--main-bg, $light);
 
   cursor: default;
 }

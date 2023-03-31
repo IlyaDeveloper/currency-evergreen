@@ -1,0 +1,36 @@
+.header {
+  //--container-flex-flow: row;
+  //--container-justify-content: space-between;
+  //--container-align-items: align-items;
+
+  display: flex;
+  gap: $gutterX3;
+  place-items: center center;
+
+  padding: $gutterX2 var(--container-gutter);
+
+  color: $light;
+
+  background: $secondary;
+
+  &__logo {
+    font-size: rem(18);
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:first-letter {
+      font-size: rem(22);
+      font-weight: 900;
+      color: $primary;
+    }
+  }
+
+  &__menu {
+    display: inline-flex;
+    gap: $gutterX3;
+
+    margin: auto 0 auto auto;
+
+    font-size: rem(18);
+  }
+}

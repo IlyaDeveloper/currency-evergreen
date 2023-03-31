@@ -1,0 +1,9 @@
+.caption {
+  margin: var(--caption-marhin, 0 0 $gutterX2);
+
+  @extend %h1;
+
+  &.--2 {
+    @extend %h5;
+  }
+}

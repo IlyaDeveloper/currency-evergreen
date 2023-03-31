@@ -1,0 +1,38 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: var(--button-height, rem(36));
+
+  padding: var(--button-gutter-y, rem(10)) var(--button-gutter-x, rem(24));
+
+  font-weight: bold;
+  font-size: var(--button-size, rem(16));
+  color: var(--button-color, currentColor);
+  text-align: center;
+
+  touch-action: none;
+  outline: unset;
+
+  border-radius: var(--button-radius, rem(36));
+  box-shadow: var(--button-shadow, 0 0 0 var(--button-shadow-size, rem(2)) currentColor);
+  background: var(--button-fill, transparent);
+
+  @include only-mouse {
+    transition: .5s linear;
+    transition-property: background-color, box-shadow, border-color, color, opacity, transform;
+    cursor: pointer;
+
+    &:hover {
+      --button-fill: var(--button-fill-hover, #{$primary});
+      --button-color: var(--button-color-hover, #{$light});
+      --link-hover-color: var(--button-color);
+      --button-shadow: var(--button-shadow-hover, transparent);
+    }
+
+    &:active {
+      transform: scale(0.85);
+    }
+  }
+}

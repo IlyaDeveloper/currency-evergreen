@@ -1,0 +1,50 @@
+.converter {
+
+  &__head {
+
+  }
+
+  &__card {
+    @extend %card;
+    @extend %card-hover-animation;
+
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $gutterX2;
+  }
+
+  &__form {
+    display: flex;
+    gap: $gutterX2;
+  }
+
+  &__table {
+    display: grid;
+    flex: 1 1 100%;
+    grid-gap: rem(5);
+  }
+
+  &__table-item {
+    display: inline-grid;
+    grid-template-columns: rem(80) 1fr 1fr;
+    padding: rem(8) rem(8) ;
+
+    font-size: rem(14);
+
+    border-bottom: rem(1) solid $light;
+
+    span {
+      text-align: right;
+    }
+
+    &.--head {
+      font-weight: 300;
+      font-size: rem(12);
+      opacity: 0.8;
+    }
+  }
+
+}
