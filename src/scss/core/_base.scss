@@ -1,0 +1,103 @@
+
+html {
+  font-family: $font-family-primary, $font-family-system;
+  font-size: $base-font-size;
+  font-weight: normal;
+  font-synthesis: none;
+  text-align: left;
+  line-height: $base-font-height;
+  letter-spacing: normal;
+  color: $base-color;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  text-rendering: optimizeLegibility;
+
+  scroll-behavior: smooth;
+
+  @include content-scale($contentScale);
+
+}
+
+body {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-flow: column;
+
+  min-width: calc(100vw - 0.1px);
+  min-height: calc(100vh - 0.1px);
+
+  margin: 0;
+  padding: var(--header-height) 0 0;
+
+  background: var(--main-bg, $base-color);
+
+  cursor: default;
+}
+
+a {
+  color: var(--link-color, currentColor);
+
+  text-decoration: none;
+
+  user-select: none;
+
+  transition: $transition-default;
+  transition-property: color;
+  cursor: pointer;
+
+  @include only-mouse {
+    &:hover {
+      color: var(--link-hover-color, $primary);
+    }
+  }
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+mark {
+  color: currentColor;
+  background: unset;
+}
+
+p {
+  max-width: var(--p-max-width, unset);
+
+  margin: var(--p-margin, 0);
+
+  font-weight: var(--p-font-weight, normal);
+  font-size: var(--p-font-size, rem(16));
+  line-height: var(--p-line-height, 1.38);
+}
+
+*::selection {
+  background-color: $primary;
+  color: $secondary;
+}
+
+.container {
+  position: var(--container-position, unset);
+
+  display: var(--container-block, flex);
+  align-items: var(--container-align-items, flex-start);
+  justify-content: var(--container-justify-content, flex-start);
+  flex-flow: var(--container-flex-flow, column);
+  gap: var(--container-gap, 0);
+
+  width: 100%;
+  max-width: var(--container-limit, auto);
+
+  padding-right: var(--container-gutter, 0);
+  padding-left: var(--container-gutter, 0);
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (max-height: 420px) {
+    @include phones-fit-max-evn(16px);
+  }
+}

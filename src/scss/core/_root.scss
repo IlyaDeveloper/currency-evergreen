@@ -1,0 +1,13 @@
+:root {
+  //* root sizes
+  --layout-spacer: #{$gutterX3};
+
+  --container-limit: #{$containerLimit};
+  --container-gutter: #{$gutterX2};
+
+  --container-top: calc(#{$gutterX3} * 2);
+  --container-x: calc(var(--layout-spacer) + #{$gutterX2});
+  --container-bottom: var(--container-top);
+
+  @include generate-themes($themes-map);
+}

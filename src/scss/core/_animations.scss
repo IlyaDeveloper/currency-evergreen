@@ -1,0 +1,11 @@
+@include keyframes(animation) {
+  0% {
+    opacity: var(--animation-opacity-start, 0);
+    transform: var(--animation-transform-start, translate(-100vw, 0));
+  }
+
+  100% {
+    opacity: var(--animation-opacity-end, 1);
+    transform: var(--animation-transform-end, translate(0, 0));
+  }
+}
