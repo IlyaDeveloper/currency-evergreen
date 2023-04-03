@@ -5,7 +5,7 @@
   max-width: rem(780);
 
   &__head {
-    --caption-margin: #{15vh 0 $gutterX3};
+    //--caption-margin: #{15vh 0 $gutterX3};
 
     text-align: center;
   }
@@ -13,17 +13,15 @@
   &__main {
     @extend %card;
     @extend %card-hover-animation;
+
+    height: max-content;
   }
 
-  &__form, &__form-group {
-    display: flex;
+  &__form {
+    display: grid;
     gap: $gutterX2;
 
     flex: 1 1;
-  }
-
-  &__form-group {
-    flex-flow: column;
   }
 
   &__table {
@@ -50,5 +48,63 @@
       font-size: rem(12);
       opacity: 0.8;
     }
+  }
+
+  &__foot {
+    --link-color: #{$primary-dark};
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    margin: $gutterX3 auto;
+
+    font-weight: 600;
+    font-size: rem(18);
+    text-align: center;
+
+    svg {
+      width: rem(96);
+      margin: $gutterX2 0 0;
+
+      fill: currentColor;
+
+
+      transition: $transition-default;
+      transition-property: color, transform;
+
+      @include only-mouse {
+        &:hover {
+          transform: scale(1.15);
+        }
+      }
+    }
+  }
+
+  @include min-wide(tablet) {
+    &__form {
+      & > * {
+        &:nth-child(1) {
+          grid-area: 1/1/1;
+        }
+
+        &:nth-child(1) {
+          //grid-area: 2/2/2;
+        }
+
+        &:nth-child(2) {
+          //grid-area: 2/2/1;
+        }
+
+        &:nth-child(3) {
+          //grid-area: 2/2 span;
+        }
+      }
+    }
+  }
+
+  @include max-wide(phones) {
+    --card-gutter-y: #{rem(32)};
+    --card-gutter-x: #{rem(32)};
   }
 }

@@ -40,7 +40,7 @@ export class CurrencyService {
     try {
       return await fetch(api)
         .then(response => {
-          if (response.ok) {
+          if (response.ok){
             // console.log('',response.json());
             return response.json()
           }
@@ -71,25 +71,14 @@ export class CurrencyService {
   }
 
   actualSelectedCurrency(elm) {
-    console.log('item ', elm.options.values)
-    let arr = [...elm];
-
-    console.log('item ', arr);
-    arr.forEach((item) => {
-      console.log('item ', item)
+    for (const item of elm.options) {
       if (this.currency === item.value) {
         item.selected = true;
-
-        console.log('   item.selected ', item.selected);
       }
-    })
-
-    for (const item of elm.options) {
-
     }
   }
 
   convert(base, to) {
-    return (base * to).toFixed(2);
+    return (base / to).toFixed(2);
   }
 }

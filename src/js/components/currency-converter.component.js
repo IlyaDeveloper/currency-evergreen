@@ -18,7 +18,6 @@ export class CurrencyConverterComponent {
     this.currencyService = new CurrencyService();
 
     this.currencyService.actualValueDateInput(this.dateInput);
-    this.currencyService.actualSelectedCurrency(this.receiveSelect);
   }
 
   get getBaseValue() {
@@ -66,6 +65,7 @@ export class CurrencyConverterComponent {
       }
 
     }).then(() => {
+      this.currencyService.actualSelectedCurrency(this.receiveSelect);
       this.changeCurrency();
     });
   }

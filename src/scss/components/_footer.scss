@@ -1,12 +1,13 @@
 .footer {
   display: flex;
   align-items: center;
-  gap: $gutterX2;
+  gap: $gutterX3;
 
-  padding: $gutter var(--container-gutter);
+  padding: $gutterX3 var(--container-gutter) $gutterX2;
 
   &__img {
-    width: rem(68);
+    width: var(--footer-picture-size, rem(68));
+    max-width: rem(200);
     aspect-ratio: 1/1;
 
     border-radius: 50%;
@@ -17,10 +18,9 @@
 
   &__menu {
     display: inline-flex;
-    align-items: center;
+    flex: 1 1;
     gap: rem(20);
-
-    margin: auto auto auto 0;
+    align-items: center;
 
     font-size: rem(14);
     font-weight: bold;
@@ -29,5 +29,14 @@
   &__copy {
     font-size: rem(12);
     opacity: 0.6;
+  }
+
+  @include max-wide(tablet) {
+    --footer-picture-size: #{35vw};
+
+    flex-flow: column;
+    text-align: right;
+
+    border-top: rem(1) solid $primary-dark;
   }
 }

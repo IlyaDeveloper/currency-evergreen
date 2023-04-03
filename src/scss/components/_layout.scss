@@ -1,5 +1,8 @@
 .layout {
+  display: flex;
   flex: 1 1 100%;
+  flex-flow: column;
+  justify-content: center;
 
-  margin: $gutterX2 0;
+  margin: $gutterX3 0;
 }
