@@ -19,7 +19,7 @@
     "copy-host-files": "cp -r src/assets/host/* ./dist && cp -r src/assets/host/.htaccess ./dist",
     "precompile": "npm run clean-dist && npm run copy-seo && npm run copy-host-files",
     "start": "npm run clean-dist && parcel src/pug/pages/*.pug",
-    "build": "npm run precompile && parcel build src/pug/pages/*.pug --public-url='./'",
+    "build": "parcel build src/pug/pages/*.pug --public-url='./'",
     "build-map": "npm run precompile && parcel build src/html/pages/*.pug --public-url='./'",
     "deploy:jt": "npm run build && rsync -avz --delete -e 'ssh -p 20022' ./dist/ i94304@i94304.hostus01.fornex.host:~/public_html/currency-evergreen.justtwic.art"
   },
