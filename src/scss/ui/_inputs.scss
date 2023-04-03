@@ -11,7 +11,12 @@
   }
 
   label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
     padding: 0 0 0 rem(8);
+
     font-size: rem(12);
     font-weight: bold;
   }
@@ -37,6 +42,18 @@
     }
   }
 
+  &__msg {
+    margin: rem(-5) 0 0 rem(8);
+
+    font-size: rem(11);
+    letter-spacing: rem(-1);
+    font-weight: 500;
+
+    strong {
+      color: $primary-dark;
+    }
+  }
+
   &.--select {
     input {
       border-radius: $radiusSmall 0 0 $radiusSmall;
@@ -56,9 +73,98 @@
       text-transform: uppercase;
     }
   }
+
+  &.--prefix {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      inset: rem(31.5) auto auto rem(15);
+
+      content: attr(data-input-prefix);
+
+      font-size: rem(16);
+      font-weight: 600;
+      color: $primary;
+    }
+
+    input {
+      padding-left: rem(32);
+    }
+  }
 }
 
-.section {
+.select {
   @extend %form-element;
+
+  width: rem(64);
+}
+
+.switcher {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  padding: rem(3);
+
+  font-size: rem(12);
+  line-height: rem(16);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: rem(-0.5);
+
+  border: rem(1) solid $secondary-dark;
+  border-radius: rem(12);
+
+  cursor: pointer;
+
+  overflow: hidden;
+  transition: border-color $transition-default;
+
+  //@include only-mouse {
+  //  &:hover {
+  //    border-color: $primary;
+  //  }
+  //}
+
+  input {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    opacity: 0;
+
+    &:checked {
+      & ~ span {
+        --switcher-fill-pos: 100%;
+      }
+    }
+  }
+
+  span {
+    position: relative;
+
+    justify-self: stretch;
+    align-self: stretch;
+
+    padding: rem(0) rem(12);
+
+    &:first-of-type {
+      &:before {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        content: '';
+
+        border-radius: rem(8);
+        background: $primary;
+
+        transform: translate(var(--switcher-fill-pos), 0);
+        transition: transform $transition-default;
+      }
+    }
+  }
 }
 

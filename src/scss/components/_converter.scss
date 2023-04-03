@@ -1,24 +1,29 @@
 .converter {
+  place-self: center;
+
+  width: 100%;
+  max-width: rem(780);
 
   &__head {
+    --caption-margin: #{15vh 0 $gutterX3};
 
-  }
-
-  &__card {
-    @extend %card;
-    @extend %card-hover-animation;
-
+    text-align: center;
   }
 
   &__main {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: $gutterX2;
+    @extend %card;
+    @extend %card-hover-animation;
   }
 
-  &__form {
+  &__form, &__form-group {
     display: flex;
     gap: $gutterX2;
+
+    flex: 1 1;
+  }
+
+  &__form-group {
+    flex-flow: column;
   }
 
   &__table {
@@ -30,7 +35,7 @@
   &__table-item {
     display: inline-grid;
     grid-template-columns: rem(80) 1fr 1fr;
-    padding: rem(8) rem(8) ;
+    padding: rem(8) rem(8);
 
     font-size: rem(14);
 
@@ -46,5 +51,4 @@
       opacity: 0.8;
     }
   }
-
 }

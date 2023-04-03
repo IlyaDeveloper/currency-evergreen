@@ -1,0 +1,77 @@
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: z-index(modal);
+
+  display: flex;
+
+  min-width: 100vw;
+  min-height: 100vh;
+
+  padding: var(--container-gutter);
+
+  opacity: 0;
+  overflow: hidden;
+
+  &:before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    content: '';
+
+    background: $primary-dark;
+    opacity: .4;
+  }
+
+  &__main {
+    max-width: rem(996);
+    min-width: 60vw;
+    min-height: 40vh;
+    height: fit-content;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    margin: auto;
+    padding: var(--container-gutter);
+
+    font-size: rem(24);
+    color: $secondary-dark;
+
+    border-radius: $radiusNormal;
+    background: $light;
+    overflow: hidden;
+  }
+
+  &__contnet {
+    place-self: stretch;
+    margin: auto 0;
+  }
+
+  &__foot {
+    margin: 0 $containerOffset $containerOffset $containerOffset;
+
+    place-self: stretch;
+    color: $light;
+  }
+
+  &__close {
+    width: 100%;
+
+    padding: $gutter;
+
+    background: $primary;
+    transition: $transition-default;
+
+    @include only-mouse {
+      &:hover {
+        background: $secondary-dark;
+      }
+    }
+  }
+
+}

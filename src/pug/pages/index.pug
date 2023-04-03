@@ -9,57 +9,28 @@ block content
         header.converter__head
           h1.caption Currency Converter
 
-        .converter__main
-          article.converter__card
-
+        article.converter__main
             form.converter__form(name='converter-form', action="somewhere", enctype="multipart/form-data")
-              .input
-                label(for='curPassing') Passing Currency
-                input(id='curPassing', name='curPassing', type='number', min=1)
+              fieldset.converter__form-group
+                .input(class="--prefix", data-input-prefix="₴")
+                  label(for='currency-base') Base Currency
+                  input(id='currency-base', name='currency-base', type='number', min='1', value='1.00')
 
-              .input(class='--select')
-                label(for="curReceive") Receive Currency
+                .input(class='--select')
+                  label(for="currency-receive") Exchange to
+                    .switcher
+                      input(type='checkbox', name="currency-type")
+                      span sale
+                      span purchase
+                  .input__group
+                    input(id='currency-receive', name="currency-receive", type='number', min='0.01', disabled)
+                    select.select(id='currency-rates', name='currency-rates')
+                  mark.input__msg(data-course-ratio)
 
-                .input__group
-                  input(id='curReceive', type='number',min=1)
-                  select.section(id='currList', name='currList')
-                    option(value='val1') Значение 1
-
-              .input(class='--date')
-                label(for="curDate") Display by date
-                input(
-                  type="date"
-                  id="curDate"
-                  name="curDate"
-                  value="2018-07-22"
-                  min="2013-01-01" max="2023-01-01")
-
-
-          aside.converter__card
-            h2(class='caption --2') Exchange Rate
-
-            .converter__table
-              article(class='converter__table-item --head')
-                mark name
-                span sale
-                span purse
-
-              article.converter__table-item
-                mark usd
-                span 33.343
-                span 34.343
-
-              article.converter__table-item
-                mark usd
-                span 33.343
-                span 34.343
-
-              article.converter__table-item
-                mark usd
-                span 33.343
-                span 34.343
-
-              article.converter__table-item
-                mark usd
-                span 33.343
-                span 34.343
+              fieldset.converter__form-group
+                .input(class='--date')
+                  label(for="currency-date") Exchange rate as of
+                  input(
+                    type="date"
+                    id="currency-date"
+                    name="currency-date")
